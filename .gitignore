@@ -1,0 +1,70 @@
+# Logi - pliki z informacjami diagnostycznymi i błędami
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Zależności - katalog node_modules nie powinien być w repozytorium
+node_modules/
+
+# Pliki wynikowe po buildzie - generowane po uruchomieniu procesu budowania
+dist/
+dist-ssr/
+build/
+
+# Pliki i cache Firebase - tworzone automatycznie podczas wdrożenia
+.firebase/
+.firebaserc~
+.firebasehosting.*
+firebase-debug.log
+
+# Pliki środowiskowe (.env) - zawierają klucze API i poufne dane, nie powinny być publiczne
+.env
+.env.local
+.env.*.local
+
+# Pliki systemowe - generowane przez systemy operacyjne (Windows, macOS)
+.DS_Store
+Thumbs.db
+
+# Pliki konfiguracyjne edytorów (VS Code, WebStorm itp.)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Cache ESLint - dane tymczasowe analizy kodu
+.eslintcache
+
+# Cache Vite - pliki przyspieszające lokalny build, niepotrzebne w repozytorium
+.vite/
+vite.config.ts.timestamp-*
+
+# Pliki Tailwind - generowane mapy stylów
+.tailwind/
+*.css.map
+
+# Pliki tymczasowe i lokalne - tworzone podczas działania aplikacji
+*.pid
+*.seed
+*.pid.lock
+.cache/
+tmp/
+temp/
+
+# Pliki pomocnicze lub powstałe w wyniku konfliktów merge
+*.orig
+*.bak
+*.tmp
+
+# Opcjonalne pliki blokady zależności (do odkomentowania)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yamlz
