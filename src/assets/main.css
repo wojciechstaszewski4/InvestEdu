@@ -1,0 +1,448 @@
+@import "tailwindcss";
+
+/* Podstawowa paleta kolorów dla jasnego motywu */
+@theme {
+  --color-primary: #2e7d32;
+  --color-secondary: #0f766e;
+  --color-accent: #d97706;
+  --color-warm: #b45309;
+  --color-warm-light: #fbbf24;
+  --color-warm-dark: #92400e;
+  --color-gold: #facc15;
+  --color-bg: #fffdf7;
+  --color-section: #f1ede1;
+  --color-card: #ffffff;
+  --color-border: #ddd6cc;
+  --color-text: #0f172a;
+  --color-danger: #b91c1c;
+}
+
+/* Włączenie jasnego motywu */
+:root {
+  color-scheme: light;
+}
+
+/* Zmiana palety kolorów dla ciemnego motywu */
+:root.dark {
+  --color-primary: #34d399;
+  --color-secondary: #22d3ee;
+  --color-accent: #f59e0b;
+  --color-warm: #f59e0b;
+  --color-warm-light: #fcd34d;
+  --color-warm-dark: #b45309;
+  --color-gold: #eab308;
+  --color-bg: #0b1220;
+  --color-section: #121a2b;
+  --color-card: #151f34;
+  --color-border: #26344f;
+  --color-text: #e6edf3;
+  --color-danger: #f87171;
+  color-scheme: dark;
+}
+
+/* Ustawienie offsetu dla przewijania (pod sticky header) */
+html {
+  scroll-padding-top: 6.5rem;
+}
+
+/* Wymuszenie stałego miejsca na scrollbar aby uniknąć przesunięć layoutu */
+body {
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Wyłączenie możliwości zaznaczania tekstu w całej aplikacji */
+html,
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Włączenie możliwości zaznaczania tekstu dla teorii rozdziałów */
+.theory-content {
+  user-select: text;
+}
+
+/* Wyłączenie przeciągania elementów interaktywnych */
+a,
+button,
+img,
+svg {
+  -webkit-user-drag: none;
+}
+
+/* Usunięcie podświetlenia przy fokusie dla buttonów i linków */
+button,
+a {
+  outline: none;
+}
+
+/* Style dla list w treściach teoretycznych */
+.theory-content ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+/* Margines między elementami listy w treściach teoretycznych*/
+.theory-content li {
+  margin: 0.15rem 0;
+}
+
+/* Animowany hamburger */
+.hamburger {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Usunięcie żółtego autofill background w Chrome/Edge */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-card) inset !important;
+  box-shadow: 0 0 0 30px var(--color-card) inset !important;
+  -webkit-text-fill-color: var(--color-text) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Ukrycie domyślnej ikonki "Pokaż hasło" w Edge */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
+}
+
+/* Płynna animacja przełączania motywu kolorów */
+html.theme-transition,
+html.theme-transition * {
+  transition: background-color 300ms ease-out, color 300ms ease-out,
+    border-color 300ms ease-out, fill 300ms ease-out, stroke 300ms ease-out;
+}
+
+/* Ukrywanie paska scrollbara w poziomie nie blokując przewijania */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Globalnie wyłączanie przeciągania obrazów (avatarów, ilustracji itd.) */
+img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Animacja wjazdu elementów z fade + przesunięciem */
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide,
+.animate-fade-slide-delay,
+.animate-fade-slide-delay-2,
+.animate-fade-slide-delay-3,
+.animate-fade-slide-delay-4,
+.animate-fade-slide-delay-5,
+.animate-fade-slide-delay-6,
+.animate-fade-slide-delay-7 {
+  animation: fade-slide-up 0.8s ease-out both;
+}
+
+.animate-fade-slide-delay {
+  animation-delay: 0.15s;
+}
+
+.animate-fade-slide-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.animate-fade-slide-delay-3 {
+  animation-delay: 0.45s;
+}
+
+.animate-fade-slide-delay-4 {
+  animation-delay: 0.6s;
+}
+
+.animate-fade-slide-delay-5 {
+  animation-delay: 0.75s;
+}
+
+.animate-fade-slide-delay-6 {
+  animation-delay: 0.9s;
+}
+
+.animate-fade-slide-delay-7 {
+  animation-delay: 1s;
+}
+
+/* Animacja fade dla kart i sekcji */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+/* Efekt skeleton–loading dla elementów ładowanych */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-border) 30%, var(--color-card)) 25%,
+    color-mix(in srgb, var(--color-border) 10%, var(--color-card)) 37%,
+    color-mix(in srgb, var(--color-border) 30%, var(--color-card)) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* Zmodyfikowany kolor skeletona dla ciemnego motywu */
+:root.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, #1f2937 50%, var(--color-card)) 25%,
+    color-mix(in srgb, #374151 30%, var(--color-card)) 37%,
+    color-mix(in srgb, #1f2937 50%, var(--color-card)) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+/* Animacja pop dla modalów i popupów */
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-pop {
+  animation: pop 150ms ease-out both;
+}
+
+/* Animacja ładowania strony przy pierwszym wejściu */
+@keyframes page-load {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.page-load {
+  animation: page-load 0.6s ease-out both;
+}
+
+/* Animacja przejścia między widokami (router transitions) */
+.view-enter-from,
+.view-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+  filter: blur(4px);
+}
+
+.view-enter-to,
+.view-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.view-enter-active,
+.view-leave-active {
+  transition: 0.4s ease-out;
+  will-change: opacity, transform, filter;
+}
+
+.view-enter-from,
+.view-leave-to,
+.view-enter-to,
+.view-leave-from {
+  backface-visibility: hidden;
+}
+
+/* Animacja toastów po poprawnym logowaniu lub rejestracji */
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Animacja rozwijanych opisów do modułów karuzeli kart */
+.expand-enter-from,
+.expand-leave-to {
+  height: 0;
+  opacity: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  height: var(--h);
+  opacity: 1;
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: height 0.35s ease, opacity 0.25s ease;
+}
+
+/* Animacja przesuwania i zanikania (do panelu mobilnego) */
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.25s ease;
+}
+
+/* Animacja pojawiania się linków w navbarze */
+.nav-fade-enter-active {
+  transition: opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.nav-fade-enter-from {
+  opacity: 0;
+  transform: translateY(2px);
+}
+
+.nav-fade-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-fade-leave-active {
+  transition: none;
+  position: absolute;
+}
+
+.nav-fade-leave-from,
+.nav-fade-leave-to {
+  opacity: 0;
+  transform: none;
+}
+
+.nav-fade-move {
+  transition: none !important;
+}
+
+/* Animacja zmiany pytań w quizach */
+.question-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.question-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.question-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.question-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.question-enter-active,
+.question-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+/* Animacja przejścia do ekranu "Quiz ukończony" */
+.quiz-finish-enter-from {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+}
+
+.quiz-finish-enter-to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.quiz-finish-leave-from {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.quiz-finish-leave-to {
+  opacity: 0;
+  transform: translateY(-16px) scale(0.98);
+}
+
+.quiz-finish-enter-active,
+.quiz-finish-leave-active {
+  transition: all 0.5s ease-out;
+}
