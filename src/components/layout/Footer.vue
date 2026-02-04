@@ -7,7 +7,7 @@ const { brand } = defineProps({
 });
 
 const tagline = "Ucz się inwestowania po ludzku.";
-const github = "https://github.com/Srb404/InvestEdu";
+const github = "https://github.com/wojciechstaszewski4/InvestEdu";
 
 const year = new Date().getFullYear();
 </script>
