@@ -35,12 +35,12 @@
         </h2>
         <p class="text-text/80 animate-fade-slide-delay-2">
           <a
-            href="https://github.com/Srb404/InvestEdu"
+            href="https://github.com/wojciechstaszewski4/InvestEdu"
             target="_blank"
             rel="noopener noreferrer"
             class="text-primary underline hover:text-secondary"
           >
-            github.com/Srb404/InvestEdu
+            github.com/wojciechstaszewski4/InvestEdu
           </a>
         </p>
 
